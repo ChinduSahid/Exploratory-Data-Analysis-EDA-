@@ -1,0 +1,69 @@
+---
+title: "Exploratory Data Analysis"
+author: "Chindu"
+date: "5/26/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## This is a Expploratory Data Analysis report carried out on a sample CRM dataset
+
+
+```{r,include= FALSE}
+library(dplyr)
+library(dlookr)
+```
+
+Loading csv file into R studio
+```{r}
+data<-read.csv("ReadyforModelling.csv") 
+```
+
+Checking if R studio has identified the right structure for each variable
+```{r}
+str(data)
+```
+Changing structure of wrongly assigned variables and remove variables unrealated to the analysis
+```{r}
+data$Answered.by.specialist<- factor(data$Answered.by.specialist)
+data$Booked.Status<- factor(data$Booked.Status)
+data$EnquiryYear<-factor(data$EnquiryYear)
+data$DepYear<-factor(data$DepYear)
+data$X<-NULL
+```
+Get a better understanding of the entire dataset
+```{r}
+summary(data)
+```
+Get a better understanding of numeric/interger variables
+```{r}
+diagnose_numeric(data)
+```
+Get a better understanding of categorical variables
+```{r}
+diagnose_category(data)
+```
+Checking correlation between numerical variables
+```{r}
+plot_correlate(data)
+```
+Exploring relation between target varaible (Booked.Status) and a numeric variable
+```{r}
+categ<-target_by(data,Booked.Status)
+cat_num<-relate(categ,Duration)
+cat_num
+summary(cat_num)
+plot(cat_num) # relationship between booked.status and duration is represented using a desity plot
+```
+Exploring relation between target variable(BookedStatus) and a categorical variable
+```{r}
+cat_cat<-relate(categ,Allocated.Time)
+cat_cat
+plot(cat_cat) #mosaics plot
+```
+
+
+
