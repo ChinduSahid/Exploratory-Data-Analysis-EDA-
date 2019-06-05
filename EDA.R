@@ -2,6 +2,8 @@
 
 library(dplyr)
 library(dlookr)
+library(ggplot2)
+library(reshape2)
 
 # Read data
 data<-read.csv("ReadyforModelling.csv") 
@@ -22,6 +24,20 @@ diagnose_numeric(data)
 View(diagnose_category(data))
 # checking correlation between numerical variables
 plot_correlate(data)
+
+# Correlation Matrix
+num.cols<-sapply(data,is.numeric)
+data_numcols<-data[,num.cols]
+cor(data_numcols)
+
+melted_corr<-melt(cor(data_numcols))
+ggplot(data=melted_corr,aes(x=Var1,y=Var2,fill=value))+
+  geom_tile()+
+  scale_fill_gradient(low="grey",high="darkred")+
+  geom_text(aes(x=Var1,y=Var2,label=round(value,2)),size=4)+
+  labs(title="Correlation Matrix",x="Numeric column",y="Numeric column",fill="Coefficient Range")+
+  theme(axis.text.x=element_text(angle=45, vjust=0.5))
+
 
 # Exploring relation between target varaible(BookedStaus) and a numeric variable
 categ<-target_by(data,Booked.Status)
@@ -59,9 +75,6 @@ data %>%
                  select(variables) %>% 
                  unlist())
 # The plot shows that the variable infants is highly skewed
-table(data$Infants)
-# This variable would not be of much use in this analysis considering the highly skewed distribution and hence should be elimited
-data$Infants<-NULL
 
 plot_normality(data)
 
@@ -92,6 +105,14 @@ year_month<- data%>%group_by(EnquiryYear,EnquiryMonth) %>% count(Destination)%>%
 ggplot(data=year_month,aes(x=EnquiryYear,y=n,fill=as.factor(EnquiryMonth)))+ geom_bar(stat="identity")+
   labs(title="total enquiries per year-month",x="year",y="total enquiries",fill="EnquiryMonth")
 
-# How many enquiries were booked based on Allocated.Time
+# How many enquiries were booked based on Allocated.Time?
 data$Booked.Status<-as.integer(data$Booked.Status)
+data$Booked.Status<-ifelse(data$Booked.Status %in% 1,0,1)
 booked_Allocated<-data%>%group_by(Allocated.Time)%>% summarise(booked=sum(Booked.Status)) %>%arrange(Allocated.Time)%>%ungroup()
+ggplot(data=booked_Allocated,aes(x=Allocated.Time,y=booked,fill=as.factor(Allocated.Time)))+ geom_bar(stat="identity")+
+  labs(title="Enquiries booked based on allocated time",x="year",y="total booked",fill="Allocated.Time")
+
+# Which destinations are popular based on departure months?
+ggplot(data,aes(x=factor(data$DepMonth),fill=Destination))+geom_bar()+
+  labs(title="Enquiries of destination for each departure date",x="Departure Month",y="Enquiries",fill="Destination")
+

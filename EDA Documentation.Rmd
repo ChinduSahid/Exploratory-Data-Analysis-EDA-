@@ -15,6 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r,include= FALSE}
 library(dplyr)
 library(dlookr)
+library(ggplot2)
 ```
 
 Loading csv file into R studio
@@ -65,5 +66,42 @@ cat_cat
 plot(cat_cat) #mosaics plot
 ```
 
+Understanding
 
+```{r}
+boxplot(data$DepMonth~data$Destination)
+```
+
+
+
+
+
+Desination by popularity and what is the total enquiries for each destination?
+```{r}
+pop_destination<- data %>% group_by(Destination) %>% count(Destination) %>%ungroup()
+
+ggplot(data=pop_destination,aes(x=reorder(as.factor(Destination),n),y=n,fill=as.factor(Destination)))+geom_bar(stat="identity")+coord_flip()+
+  labs(title= "most popular destination based on enquiries", x="Enquiries",y="Destinations")
+```
+What are the day and month wise total enquiries?
+```{r}
+day_month_sale<- data%>%group_by(EnquiryMonth,EnquiryDay)  %>% count(Destination)%>%arrange(EnquiryMonth,EnquiryDay) %>% ungroup()
+ggplot(data=day_month_sale,aes(x=EnquiryDay,y=n,group=EnquiryMonth,color=as.factor(EnquiryMonth)))+geom_line()+geom_point()+scale_x_continuous(breaks=seq(min(0),max(31),by=1))+
+  labs(title="Enquiries by month per day")
+
+ggplot(data=day_month_sale, aes(x=EnquiryDay,y=n,fill=as.factor(EnquiryDay)))+geom_bar(stat="identity")+scale_x_continuous(breaks=seq(min(0),max(31),by=1))+facet_wrap(~EnquiryMonth,ncol=2)
+```
+
+Total enquiries by year and month
+```{r}
+year_month<- data%>%group_by(EnquiryYear,EnquiryMonth) %>% count(Destination)%>%arrange(EnquiryYear)%>%ungroup()
+ggplot(data=year_month,aes(x=EnquiryYear,y=n,fill=as.factor(EnquiryMonth)))+ geom_bar(stat="identity")+
+  labs(title="total enquiries per year-month",x="year",y="total enquiries",fill="EnquiryMonth")
+```
+
+How many enquiries were booked based on Allocated.Time
+```{r}
+data$Booked.Status<-as.integer(data$Booked.Status)
+booked_Allocated<-data%>%group_by(Allocated.Time)%>% summarise(booked=sum(Booked.Status)) %>%arrange(Allocated.Time)%>%ungroup()
+```
 
