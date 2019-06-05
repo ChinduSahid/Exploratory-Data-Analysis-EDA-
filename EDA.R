@@ -116,3 +116,13 @@ ggplot(data=booked_Allocated,aes(x=Allocated.Time,y=booked,fill=as.factor(Alloca
 ggplot(data,aes(x=factor(data$DepMonth),fill=Destination))+geom_bar()+
   labs(title="Enquiries of destination for each departure date",x="Departure Month",y="Enquiries",fill="Destination")
 
+# Which period of the day is the Allocated.Time the worst?
+ggplot(data,aes(x=Enquiry.Time_class,fill=Allocated.Time)) + geom_bar(position="dodge")
+# proportion 
+tab_count<-table(data$Enquiry.Time_class,data$Allocated.Time)
+prop.table(tab_count,2)
+prop.table(tab_count,1)
+ggplot(data,aes(x=Enquiry.Time_class,fill=Allocated.Time)) + geom_bar(position="fill") + ylab("proportion")
+
+#popular holidaytype based on departure month
+ggplot(data,aes(x=factor(DepMonth))) + geom_bar() + facet_wrap(~Holiday.Type)

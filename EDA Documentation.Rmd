@@ -66,14 +66,11 @@ cat_cat
 plot(cat_cat) #mosaics plot
 ```
 
-Understanding
+Understanding what is the most common numberof adults in each holiday type to carry out better marketing promotions.
 
 ```{r}
-boxplot(data$DepMonth~data$Destination)
+boxplot(data$Adults~data$Holiday.Type)
 ```
-
-
-
 
 
 Desination by popularity and what is the total enquiries for each destination?
@@ -81,13 +78,11 @@ Desination by popularity and what is the total enquiries for each destination?
 pop_destination<- data %>% group_by(Destination) %>% count(Destination) %>%ungroup()
 
 ggplot(data=pop_destination,aes(x=reorder(as.factor(Destination),n),y=n,fill=as.factor(Destination)))+geom_bar(stat="identity")+coord_flip()+
-  labs(title= "most popular destination based on enquiries", x="Enquiries",y="Destinations")
+  labs(title= "most popular destination based on enquiries", x="Destination",y="Enquiries")
 ```
 What are the day and month wise total enquiries?
 ```{r}
 day_month_sale<- data%>%group_by(EnquiryMonth,EnquiryDay)  %>% count(Destination)%>%arrange(EnquiryMonth,EnquiryDay) %>% ungroup()
-ggplot(data=day_month_sale,aes(x=EnquiryDay,y=n,group=EnquiryMonth,color=as.factor(EnquiryMonth)))+geom_line()+geom_point()+scale_x_continuous(breaks=seq(min(0),max(31),by=1))+
-  labs(title="Enquiries by month per day")
 
 ggplot(data=day_month_sale, aes(x=EnquiryDay,y=n,fill=as.factor(EnquiryDay)))+geom_bar(stat="identity")+scale_x_continuous(breaks=seq(min(0),max(31),by=1))+facet_wrap(~EnquiryMonth,ncol=2)
 ```
