@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.6.4)  7 JUN 2019 16:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.6.4)  7 JUN 2019 19:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -717,30 +717,30 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 ) (./EDA_Documentation.aux)
 \openout1 = `EDA_Documentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 142.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 142.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 141.
+LaTeX Font Info:    ... okay on input line 141.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 141.
+LaTeX Font Info:    ... okay on input line 141.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 141.
+LaTeX Font Info:    ... okay on input line 141.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 141.
+LaTeX Font Info:    ... okay on input line 141.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 141.
+LaTeX Font Info:    ... okay on input line 141.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 141.
+LaTeX Font Info:    ... okay on input line 141.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 141.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 141.
 
 (c:/Users/Admin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 142.
+LaTeX Font Info:    ... okay on input line 141.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 141.
+LaTeX Font Info:    ... okay on input line 141.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 141.
+LaTeX Font Info:    ... okay on input line 141.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 141.
 (c:/Users/Admin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -779,7 +779,7 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box48
-Package hyperref Info: Link coloring OFF on input line 142.
+Package hyperref Info: Link coloring OFF on input line 141.
 
 (c:/Users/Admin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.s
 ty
@@ -791,9 +791,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count137
 )
-LaTeX Info: Redefining \ref on input line 142.
-LaTeX Info: Redefining \pageref on input line 142.
-LaTeX Info: Redefining \nameref on input line 142.
+LaTeX Info: Redefining \ref on input line 141.
+LaTeX Info: Redefining \pageref on input line 141.
+LaTeX Info: Redefining \nameref on input line 141.
 (./EDA_Documentation.out) (./EDA_Documentation.out)
 \@outlinefile=\write4
 \openout4 = `EDA_Documentation.out'.
@@ -820,187 +820,178 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 
-Package xcolor Warning: Incompatible color definition on input line 152.
+Package xcolor Warning: Incompatible color definition on input line 151.
 
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 153.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 152.
 
 (c:/Users/Admin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 154.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 153.
 
-Package xcolor Warning: Incompatible color definition on input line 156.
-
-
-Package xcolor Warning: Incompatible color definition on input line 156.
+Package xcolor Warning: Incompatible color definition on input line 155.
 
 
-Package xcolor Warning: Incompatible color definition on input line 161.
+Package xcolor Warning: Incompatible color definition on input line 155.
 
 
-Package xcolor Warning: Incompatible color definition on input line 165.
+Package xcolor Warning: Incompatible color definition on input line 160.
 
 
-Package xcolor Warning: Incompatible color definition on input line 165.
+Package xcolor Warning: Incompatible color definition on input line 164.
 
-LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 200
+
+Package xcolor Warning: Incompatible color definition on input line 164.
+
+LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 199
 .
 (c:/Users/Admin/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Overfull \hbox (18.49356pt too wide) in paragraph at lines 200--200
+Overfull \hbox (18.49356pt too wide) in paragraph at lines 199--199
 []\T1/lmtt/m/n/10 ##  $ Allocated.Time        : Factor w/ 3 levels "Extremely F
 ast",..: 2 2 2 2 2 2 2 2 2 2 ...[] 
  []
 
 
-Overfull \hbox (18.49356pt too wide) in paragraph at lines 200--200
+Overfull \hbox (18.49356pt too wide) in paragraph at lines 199--199
 []\T1/lmtt/m/n/10 ##  $ Holiday.Type          : Factor w/ 4 levels "A","B","E",
 "OTHER": 2 1 1 2 1 1 1 3 1 1 ...[] 
  []
 
 
-Overfull \hbox (23.74355pt too wide) in paragraph at lines 200--200
+Overfull \hbox (23.74355pt too wide) in paragraph at lines 199--199
 []\T1/lmtt/m/n/10 ##  $ Accom.type            : Factor w/ 4 levels "grade1","gr
 ade2",..: 2 1 2 2 1 1 2 4 2 2 ...[] 
  []
 
 
-Overfull \hbox (2.7436pt too wide) in paragraph at lines 200--200
+Overfull \hbox (2.7436pt too wide) in paragraph at lines 199--199
 []\T1/lmtt/m/n/10 ##  $ Dep.Airport           : Factor w/ 8 levels "Any Airport
 ",..: 8 7 8 4 7 5 4 4 4 6 ...[] 
  []
 
 
-Overfull \hbox (44.74348pt too wide) in paragraph at lines 200--200
+Overfull \hbox (44.74348pt too wide) in paragraph at lines 199--199
 []\T1/lmtt/m/n/10 ##  $ Destination           : Factor w/ 15 levels " AA Resort
 "," AB",..: 4 8 5 15 2 2 1 15 1 3 ...[] 
  []
 
 
-Overfull \hbox (39.4935pt too wide) in paragraph at lines 200--200
+Overfull \hbox (39.4935pt too wide) in paragraph at lines 199--199
 []\T1/lmtt/m/n/10 ##  $ Transport.Type        : Factor w/ 3 levels "A","B","Non
 e Required": 2 1 2 1 1 2 2 1 2 3 ...[] 
  []
 
 
-Overfull \hbox (18.49356pt too wide) in paragraph at lines 200--200
+Overfull \hbox (18.49356pt too wide) in paragraph at lines 199--199
 []\T1/lmtt/m/n/10 ##  $ Title                 : Factor w/ 5 levels "Dr","Miss",
 "Mr",..: 5 5 5 5 5 5 5 5 5 5 ...[] 
  []
 
 
-Overfull \hbox (23.74355pt too wide) in paragraph at lines 200--200
+Overfull \hbox (23.74355pt too wide) in paragraph at lines 199--199
 []\T1/lmtt/m/n/10 ##  $ EnquiryWeekday        : Factor w/ 7 levels "Friday","Mo
 nday",..: 2 4 7 1 2 2 4 4 6 4 ...[] 
  []
 
 
-Overfull \hbox (23.74355pt too wide) in paragraph at lines 200--200
+Overfull \hbox (23.74355pt too wide) in paragraph at lines 199--199
 []\T1/lmtt/m/n/10 ##  $ DepWeekday            : Factor w/ 7 levels "Friday","Mo
 nday",..: 4 4 7 7 1 6 5 1 4 7 ...[] 
  []
 
 
-Overfull \hbox (13.24358pt too wide) in paragraph at lines 200--200
+Overfull \hbox (13.24358pt too wide) in paragraph at lines 199--199
 []\T1/lmtt/m/n/10 ##  $ Enquiry.Timecat       : Factor w/ 2 levels "Business_Ho
 ur",..: 1 1 1 1 1 1 1 1 1 1 ...[] 
  []
 
 
-Overfull \hbox (44.74348pt too wide) in paragraph at lines 200--200
+Overfull \hbox (44.74348pt too wide) in paragraph at lines 199--199
 []\T1/lmtt/m/n/10 ##  $ Enquiry.Time_class    : Factor w/ 3 levels "afternoon",
 "morning",..: 2 1 2 1 3 2 1 1 1 3 ...[] 
  []
 
 
-Overfull \hbox (13.24358pt too wide) in paragraph at lines 200--200
+Overfull \hbox (13.24358pt too wide) in paragraph at lines 199--199
 []\T1/lmtt/m/n/10 ##  $ DepartureSeason       : Factor w/ 4 levels "fall","spri
 ng",..: 2 2 3 3 2 2 2 4 3 2 ...[] 
  []
-
-
-Package xcolor Warning: Incompatible color definition on input line 205.
 
 [1
 
 {c:/Users/Admin/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdfte
 x.map}]
 
-Package xcolor Warning: Incompatible color definition on input line 215.
+Package xcolor Warning: Incompatible color definition on input line 206.
 
 
-Package xcolor Warning: Incompatible color definition on input line 215.
+Package xcolor Warning: Incompatible color definition on input line 216.
 
 
-Package xcolor Warning: Incompatible color definition on input line 219.
+Package xcolor Warning: Incompatible color definition on input line 216.
 
 
-Package xcolor Warning: Incompatible color definition on input line 223.
+Package xcolor Warning: Incompatible color definition on input line 220.
 
 
-Package xcolor Warning: Incompatible color definition on input line 223.
+Package xcolor Warning: Incompatible color definition on input line 224.
 
 
-Package xcolor Warning: Incompatible color definition on input line 239.
+Package xcolor Warning: Incompatible color definition on input line 224.
 
 
-Package xcolor Warning: Incompatible color definition on input line 243.
+Package xcolor Warning: Incompatible color definition on input line 244.
 
 
-Package xcolor Warning: Incompatible color definition on input line 243.
+Package xcolor Warning: Incompatible color definition on input line 248.
 
 
-Package xcolor Warning: Incompatible color definition on input line 264.
+Package xcolor Warning: Incompatible color definition on input line 248.
+
+[2]
+
+Package xcolor Warning: Incompatible color definition on input line 278.
 
 
-Package xcolor Warning: Incompatible color definition on input line 268.
+Package xcolor Warning: Incompatible color definition on input line 282.
 
 
-Package xcolor Warning: Incompatible color definition on input line 268.
+Package xcolor Warning: Incompatible color definition on input line 282.
 
-<EDA_Documentation_files/figure-latex/unnamed-chunk-7-1.pdf, id=25, 469.755pt x
+<EDA_Documentation_files/figure-latex/unnamed-chunk-7-1.pdf, id=29, 469.755pt x
  325.215pt>
 File: EDA_Documentation_files/figure-latex/unnamed-chunk-7-1.pdf Graphic file (
 type pdf)
 <use EDA_Documentation_files/figure-latex/unnamed-chunk-7-1.pdf>
 Package pdftex.def Info: EDA_Documentation_files/figure-latex/unnamed-chunk-7-1
-.pdf  used on input line 270.
+.pdf  used on input line 284.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 270--272
+Underfull \hbox (badness 10000) in paragraph at lines 284--286
 [][]
  []
 
-[2]
 
-Package xcolor Warning: Incompatible color definition on input line 273.
-
-
-Package xcolor Warning: Incompatible color definition on input line 279.
+Package xcolor Warning: Incompatible color definition on input line 287.
 
 
-Package xcolor Warning: Incompatible color definition on input line 279.
+Package xcolor Warning: Incompatible color definition on input line 293.
 
 
-Package xcolor Warning: Incompatible color definition on input line 298.
+Package xcolor Warning: Incompatible color definition on input line 293.
 
 
-Package xcolor Warning: Incompatible color definition on input line 308.
-
-
-Package xcolor Warning: Incompatible color definition on input line 308.
-
-
-Package xcolor Warning: Incompatible color definition on input line 308.
+Package xcolor Warning: Incompatible color definition on input line 312.
 
 [3 <./EDA_Documentation_files/figure-latex/unnamed-chunk-7-1.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 308.
+Package xcolor Warning: Incompatible color definition on input line 322.
 
 
-Package xcolor Warning: Incompatible color definition on input line 308.
+Package xcolor Warning: Incompatible color definition on input line 322.
 
 <EDA_Documentation_files/figure-latex/unnamed-chunk-8-1.pdf, id=39, 469.755pt x
  325.215pt>
@@ -1008,35 +999,22 @@ File: EDA_Documentation_files/figure-latex/unnamed-chunk-8-1.pdf Graphic file (
 type pdf)
 <use EDA_Documentation_files/figure-latex/unnamed-chunk-8-1.pdf>
 Package pdftex.def Info: EDA_Documentation_files/figure-latex/unnamed-chunk-8-1
-.pdf  used on input line 310.
+.pdf  used on input line 324.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Package xcolor Warning: Incompatible color definition on input line 315.
-
-
-Package xcolor Warning: Incompatible color definition on input line 321.
-
-
-Package xcolor Warning: Incompatible color definition on input line 321.
-
-
-Package xcolor Warning: Incompatible color definition on input line 336.
-
-
-Package xcolor Warning: Incompatible color definition on input line 340.
-
-
-Package xcolor Warning: Incompatible color definition on input line 340.
+Underfull \hbox (badness 10000) in paragraph at lines 324--327
+[][]
+ []
 
 [4 <./EDA_Documentation_files/figure-latex/unnamed-chunk-8-1.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 387.
+Package xcolor Warning: Incompatible color definition on input line 331.
 
 
-Package xcolor Warning: Incompatible color definition on input line 391.
+Package xcolor Warning: Incompatible color definition on input line 337.
 
 
-Package xcolor Warning: Incompatible color definition on input line 391.
+Package xcolor Warning: Incompatible color definition on input line 337.
 
 <EDA_Documentation_files/figure-latex/unnamed-chunk-9-1.pdf, id=50, 469.755pt x
  325.215pt>
@@ -1044,86 +1022,77 @@ File: EDA_Documentation_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (
 type pdf)
 <use EDA_Documentation_files/figure-latex/unnamed-chunk-9-1.pdf>
 Package pdftex.def Info: EDA_Documentation_files/figure-latex/unnamed-chunk-9-1
-.pdf  used on input line 393.
+.pdf  used on input line 339.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[5 <./EDA_Documentation_files/figure-latex/unnamed-chunk-9-1.pdf>]
 
-Underfull \hbox (badness 10000) in paragraph at lines 393--396
-[][]
- []
-
-[5]
-
-Package xcolor Warning: Incompatible color definition on input line 397.
+Package xcolor Warning: Incompatible color definition on input line 346.
 
 
-Package xcolor Warning: Incompatible color definition on input line 402.
+Package xcolor Warning: Incompatible color definition on input line 351.
 
 
-Package xcolor Warning: Incompatible color definition on input line 402.
+Package xcolor Warning: Incompatible color definition on input line 351.
 
 
-Package xcolor Warning: Incompatible color definition on input line 411.
+Package xcolor Warning: Incompatible color definition on input line 360.
 
 
-Package xcolor Warning: Incompatible color definition on input line 415.
+Package xcolor Warning: Incompatible color definition on input line 364.
 
 
-Package xcolor Warning: Incompatible color definition on input line 415.
+Package xcolor Warning: Incompatible color definition on input line 364.
 
-<EDA_Documentation_files/figure-latex/unnamed-chunk-10-1.pdf, id=56, 469.755pt 
+<EDA_Documentation_files/figure-latex/unnamed-chunk-10-1.pdf, id=61, 469.755pt 
 x 325.215pt>
 File: EDA_Documentation_files/figure-latex/unnamed-chunk-10-1.pdf Graphic file 
 (type pdf)
 <use EDA_Documentation_files/figure-latex/unnamed-chunk-10-1.pdf>
 Package pdftex.def Info: EDA_Documentation_files/figure-latex/unnamed-chunk-10-
-1.pdf  used on input line 417.
+1.pdf  used on input line 366.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[6 <./EDA_Documentation_files/figure-latex/unnamed-chunk-9-1.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 423.
+Underfull \hbox (badness 10000) in paragraph at lines 366--369
+[][]
+ []
 
+[6 <./EDA_Documentation_files/figure-latex/unnamed-chunk-10-1.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 431.
-
-
-Package xcolor Warning: Incompatible color definition on input line 431.
-
-
-Package xcolor Warning: Incompatible color definition on input line 449.
+Package xcolor Warning: Incompatible color definition on input line 376.
 
 
-Package xcolor Warning: Incompatible color definition on input line 459.
+Package xcolor Warning: Incompatible color definition on input line 384.
 
 
-Package xcolor Warning: Incompatible color definition on input line 459.
+Package xcolor Warning: Incompatible color definition on input line 384.
 
 
-Package xcolor Warning: Incompatible color definition on input line 459.
-
-[7 <./EDA_Documentation_files/figure-latex/unnamed-chunk-10-1.pdf>]
-
-Package xcolor Warning: Incompatible color definition on input line 459.
+Package xcolor Warning: Incompatible color definition on input line 402.
 
 
-Package xcolor Warning: Incompatible color definition on input line 459.
+Package xcolor Warning: Incompatible color definition on input line 412.
 
 
-Package xcolor Warning: Incompatible color definition on input line 480.
+Package xcolor Warning: Incompatible color definition on input line 412.
+
+[7]
+
+Package xcolor Warning: Incompatible color definition on input line 435.
 
 
-Package xcolor Warning: Incompatible color definition on input line 484.
+Package xcolor Warning: Incompatible color definition on input line 439.
 
 
-Package xcolor Warning: Incompatible color definition on input line 484.
+Package xcolor Warning: Incompatible color definition on input line 439.
 
 
-Package xcolor Warning: Incompatible color definition on input line 508.
+Package xcolor Warning: Incompatible color definition on input line 463.
 
 
-Package xcolor Warning: Incompatible color definition on input line 512.
+Package xcolor Warning: Incompatible color definition on input line 467.
 
 
-Package xcolor Warning: Incompatible color definition on input line 512.
+Package xcolor Warning: Incompatible color definition on input line 467.
 
 <EDA_Documentation_files/figure-latex/unnamed-chunk-14-1.pdf, id=77, 469.755pt 
 x 325.215pt>
@@ -1131,249 +1100,278 @@ File: EDA_Documentation_files/figure-latex/unnamed-chunk-14-1.pdf Graphic file
 (type pdf)
 <use EDA_Documentation_files/figure-latex/unnamed-chunk-14-1.pdf>
 Package pdftex.def Info: EDA_Documentation_files/figure-latex/unnamed-chunk-14-
-1.pdf  used on input line 514.
+1.pdf  used on input line 469.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 514--518
+Underfull \hbox (badness 10000) in paragraph at lines 469--473
 [][]
  []
 
-[8]
 
-Package xcolor Warning: Incompatible color definition on input line 519.
+Package xcolor Warning: Incompatible color definition on input line 474.
 
+[8 <./EDA_Documentation_files/figure-latex/unnamed-chunk-14-1.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 523.
-
-
-Package xcolor Warning: Incompatible color definition on input line 523.
+Package xcolor Warning: Incompatible color definition on input line 478.
 
 
-Package xcolor Warning: Incompatible color definition on input line 540.
+Package xcolor Warning: Incompatible color definition on input line 478.
 
 
-Package xcolor Warning: Incompatible color definition on input line 547.
+Package xcolor Warning: Incompatible color definition on input line 495.
 
 
-Package xcolor Warning: Incompatible color definition on input line 547.
+Package xcolor Warning: Incompatible color definition on input line 502.
 
-<EDA_Documentation_files/figure-latex/unnamed-chunk-16-1.pdf, id=85, 469.755pt 
+
+Package xcolor Warning: Incompatible color definition on input line 502.
+
+<EDA_Documentation_files/figure-latex/unnamed-chunk-16-1.pdf, id=90, 469.755pt 
 x 325.215pt>
 File: EDA_Documentation_files/figure-latex/unnamed-chunk-16-1.pdf Graphic file 
 (type pdf)
 <use EDA_Documentation_files/figure-latex/unnamed-chunk-16-1.pdf>
 Package pdftex.def Info: EDA_Documentation_files/figure-latex/unnamed-chunk-16-
-1.pdf  used on input line 549.
+1.pdf  used on input line 504.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[9 <./EDA_Documentation_files/figure-latex/unnamed-chunk-14-1.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 553.
+Underfull \hbox (badness 10000) in paragraph at lines 504--507
+[][]
+ []
+
+[9 <./EDA_Documentation_files/figure-latex/unnamed-chunk-16-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 512.
 
 
-Package xcolor Warning: Incompatible color definition on input line 560.
+Package xcolor Warning: Incompatible color definition on input line 519.
 
 
-Package xcolor Warning: Incompatible color definition on input line 560.
+Package xcolor Warning: Incompatible color definition on input line 519.
 
-<EDA_Documentation_files/figure-latex/unnamed-chunk-17-1.pdf, id=96, 469.755pt 
-x 325.215pt>
+<EDA_Documentation_files/figure-latex/unnamed-chunk-17-1.pdf, id=101, 469.755pt
+ x 325.215pt>
 File: EDA_Documentation_files/figure-latex/unnamed-chunk-17-1.pdf Graphic file 
 (type pdf)
 <use EDA_Documentation_files/figure-latex/unnamed-chunk-17-1.pdf>
 Package pdftex.def Info: EDA_Documentation_files/figure-latex/unnamed-chunk-17-
-1.pdf  used on input line 562.
+1.pdf  used on input line 521.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 562--564
+Underfull \hbox (badness 10000) in paragraph at lines 521--527
 [][]
  []
 
-[10 <./EDA_Documentation_files/figure-latex/unnamed-chunk-16-1.pdf>]
+[10 <./EDA_Documentation_files/figure-latex/unnamed-chunk-17-1.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 565.
-
-
-Package xcolor Warning: Incompatible color definition on input line 571.
+Package xcolor Warning: Incompatible color definition on input line 530.
 
 
-Package xcolor Warning: Incompatible color definition on input line 571.
+Package xcolor Warning: Incompatible color definition on input line 536.
 
-<EDA_Documentation_files/figure-latex/unnamed-chunk-18-1.pdf, id=106, 469.755pt
+
+Package xcolor Warning: Incompatible color definition on input line 536.
+
+<EDA_Documentation_files/figure-latex/unnamed-chunk-18-1.pdf, id=111, 469.755pt
  x 325.215pt>
 File: EDA_Documentation_files/figure-latex/unnamed-chunk-18-1.pdf Graphic file 
 (type pdf)
 <use EDA_Documentation_files/figure-latex/unnamed-chunk-18-1.pdf>
 Package pdftex.def Info: EDA_Documentation_files/figure-latex/unnamed-chunk-18-
-1.pdf  used on input line 573.
+1.pdf  used on input line 538.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[11 <./EDA_Documentation_files/figure-latex/unnamed-chunk-17-1.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 577.
+Underfull \hbox (badness 10000) in paragraph at lines 538--543
+[][]
+ []
+
+[11 <./EDA_Documentation_files/figure-latex/unnamed-chunk-18-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 548.
 
 
-Package xcolor Warning: Incompatible color definition on input line 585.
+Package xcolor Warning: Incompatible color definition on input line 556.
 
 
-Package xcolor Warning: Incompatible color definition on input line 585.
+Package xcolor Warning: Incompatible color definition on input line 556.
 
-<EDA_Documentation_files/figure-latex/unnamed-chunk-19-1.pdf, id=116, 469.755pt
+<EDA_Documentation_files/figure-latex/unnamed-chunk-19-1.pdf, id=121, 469.755pt
  x 325.215pt>
 File: EDA_Documentation_files/figure-latex/unnamed-chunk-19-1.pdf Graphic file 
 (type pdf)
 <use EDA_Documentation_files/figure-latex/unnamed-chunk-19-1.pdf>
 Package pdftex.def Info: EDA_Documentation_files/figure-latex/unnamed-chunk-19-
-1.pdf  used on input line 587.
+1.pdf  used on input line 558.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[12 <./EDA_Documentation_files/figure-latex/unnamed-chunk-18-1.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 591.
+Underfull \hbox (badness 10000) in paragraph at lines 558--563
+[][]
+ []
+
+[12 <./EDA_Documentation_files/figure-latex/unnamed-chunk-19-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 568.
 
 
-Package xcolor Warning: Incompatible color definition on input line 596.
+Package xcolor Warning: Incompatible color definition on input line 573.
 
 
-Package xcolor Warning: Incompatible color definition on input line 596.
+Package xcolor Warning: Incompatible color definition on input line 573.
 
-<EDA_Documentation_files/figure-latex/unnamed-chunk-20-1.pdf, id=126, 469.755pt
+<EDA_Documentation_files/figure-latex/unnamed-chunk-20-1.pdf, id=131, 469.755pt
  x 325.215pt>
 File: EDA_Documentation_files/figure-latex/unnamed-chunk-20-1.pdf Graphic file 
 (type pdf)
 <use EDA_Documentation_files/figure-latex/unnamed-chunk-20-1.pdf>
 Package pdftex.def Info: EDA_Documentation_files/figure-latex/unnamed-chunk-20-
-1.pdf  used on input line 598.
+1.pdf  used on input line 575.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[13 <./EDA_Documentation_files/figure-latex/unnamed-chunk-19-1.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 603.
+Underfull \hbox (badness 10000) in paragraph at lines 575--580
+[][]
+ []
+
+[13 <./EDA_Documentation_files/figure-latex/unnamed-chunk-20-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 586.
 
 
-Package xcolor Warning: Incompatible color definition on input line 607.
+Package xcolor Warning: Incompatible color definition on input line 590.
 
 
-Package xcolor Warning: Incompatible color definition on input line 607.
+Package xcolor Warning: Incompatible color definition on input line 590.
 
-<EDA_Documentation_files/figure-latex/unnamed-chunk-21-1.pdf, id=137, 469.755pt
- x 325.215pt>
+<EDA_Documentation_files/figure-latex/unnamed-chunk-21-1.pdf, id=142, 469.755pt
+ x 289.08pt>
 File: EDA_Documentation_files/figure-latex/unnamed-chunk-21-1.pdf Graphic file 
 (type pdf)
 <use EDA_Documentation_files/figure-latex/unnamed-chunk-21-1.pdf>
 Package pdftex.def Info: EDA_Documentation_files/figure-latex/unnamed-chunk-21-
-1.pdf  used on input line 609.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+1.pdf  used on input line 592.
+(pdftex.def)             Requested size: 469.75386pt x 289.07928pt.
 
-Package xcolor Warning: Incompatible color definition on input line 611.
-
-[14 <./EDA_Documentation_files/figure-latex/unnamed-chunk-20-1.pdf>]
-
-Package xcolor Warning: Incompatible color definition on input line 615.
+Package xcolor Warning: Incompatible color definition on input line 594.
 
 
-Package xcolor Warning: Incompatible color definition on input line 615.
+Package xcolor Warning: Incompatible color definition on input line 598.
 
-<EDA_Documentation_files/figure-latex/unnamed-chunk-21-2.pdf, id=147, 469.755pt
- x 325.215pt>
+
+Package xcolor Warning: Incompatible color definition on input line 598.
+
+<EDA_Documentation_files/figure-latex/unnamed-chunk-21-2.pdf, id=143, 469.755pt
+ x 289.08pt>
 File: EDA_Documentation_files/figure-latex/unnamed-chunk-21-2.pdf Graphic file 
 (type pdf)
 <use EDA_Documentation_files/figure-latex/unnamed-chunk-21-2.pdf>
 Package pdftex.def Info: EDA_Documentation_files/figure-latex/unnamed-chunk-21-
-2.pdf  used on input line 617.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[15 <./EDA_Documentation_files/figure-latex/unnamed-chunk-21-1.pdf>]
+2.pdf  used on input line 600.
+(pdftex.def)             Requested size: 469.75386pt x 289.07928pt.
 
-Package xcolor Warning: Incompatible color definition on input line 622.
+Underfull \hbox (badness 10000) in paragraph at lines 600--606
+[][]
+ []
 
+[14 <./EDA_Documentation_files/figure-latex/unnamed-chunk-21-1.pdf>] [15 <./EDA
+_Documentation_files/figure-latex/unnamed-chunk-21-2.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 627.
-
-
-Package xcolor Warning: Incompatible color definition on input line 627.
-
-
-Package xcolor Warning: Incompatible color definition on input line 637.
+Package xcolor Warning: Incompatible color definition on input line 612.
 
 
-Package xcolor Warning: Incompatible color definition on input line 641.
+Package xcolor Warning: Incompatible color definition on input line 617.
 
 
-Package xcolor Warning: Incompatible color definition on input line 641.
+Package xcolor Warning: Incompatible color definition on input line 617.
 
-<EDA_Documentation_files/figure-latex/unnamed-chunk-22-1.pdf, id=158, 469.755pt
+
+Package xcolor Warning: Incompatible color definition on input line 636.
+
+
+Package xcolor Warning: Incompatible color definition on input line 640.
+
+
+Package xcolor Warning: Incompatible color definition on input line 640.
+
+<EDA_Documentation_files/figure-latex/unnamed-chunk-22-1.pdf, id=163, 469.755pt
  x 325.215pt>
 File: EDA_Documentation_files/figure-latex/unnamed-chunk-22-1.pdf Graphic file 
 (type pdf)
 <use EDA_Documentation_files/figure-latex/unnamed-chunk-22-1.pdf>
 Package pdftex.def Info: EDA_Documentation_files/figure-latex/unnamed-chunk-22-
-1.pdf  used on input line 643.
+1.pdf  used on input line 642.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 643--645
+Underfull \hbox (badness 10000) in paragraph at lines 642--646
 [][]
  []
 
-[16 <./EDA_Documentation_files/figure-latex/unnamed-chunk-21-2.pdf>]
-
-Package xcolor Warning: Incompatible color definition on input line 646.
-
+[16 <./EDA_Documentation_files/figure-latex/unnamed-chunk-22-1.pdf>]
 
 Package xcolor Warning: Incompatible color definition on input line 651.
 
 
-Package xcolor Warning: Incompatible color definition on input line 651.
+Package xcolor Warning: Incompatible color definition on input line 656.
 
-<EDA_Documentation_files/figure-latex/unnamed-chunk-23-1.pdf, id=168, 469.755pt
+
+Package xcolor Warning: Incompatible color definition on input line 656.
+
+<EDA_Documentation_files/figure-latex/unnamed-chunk-23-1.pdf, id=173, 469.755pt
  x 325.215pt>
 File: EDA_Documentation_files/figure-latex/unnamed-chunk-23-1.pdf Graphic file 
 (type pdf)
 <use EDA_Documentation_files/figure-latex/unnamed-chunk-23-1.pdf>
 Package pdftex.def Info: EDA_Documentation_files/figure-latex/unnamed-chunk-23-
-1.pdf  used on input line 653.
+1.pdf  used on input line 658.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[17 <./EDA_Documentation_files/figure-latex/unnamed-chunk-22-1.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 657.
+Underfull \hbox (badness 10000) in paragraph at lines 658--661
+[][]
+ []
 
+[17 <./EDA_Documentation_files/figure-latex/unnamed-chunk-23-1.pdf>]
 
 Package xcolor Warning: Incompatible color definition on input line 666.
 
 
-Package xcolor Warning: Incompatible color definition on input line 666.
+Package xcolor Warning: Incompatible color definition on input line 675.
 
 
-Package xcolor Warning: Incompatible color definition on input line 684.
+Package xcolor Warning: Incompatible color definition on input line 675.
 
 
-Package xcolor Warning: Incompatible color definition on input line 688.
+Package xcolor Warning: Incompatible color definition on input line 693.
 
 
-Package xcolor Warning: Incompatible color definition on input line 688.
+Package xcolor Warning: Incompatible color definition on input line 697.
 
-<EDA_Documentation_files/figure-latex/unnamed-chunk-24-1.pdf, id=178, 469.755pt
+
+Package xcolor Warning: Incompatible color definition on input line 697.
+
+<EDA_Documentation_files/figure-latex/unnamed-chunk-24-1.pdf, id=183, 469.755pt
  x 325.215pt>
 File: EDA_Documentation_files/figure-latex/unnamed-chunk-24-1.pdf Graphic file 
 (type pdf)
 <use EDA_Documentation_files/figure-latex/unnamed-chunk-24-1.pdf>
 Package pdftex.def Info: EDA_Documentation_files/figure-latex/unnamed-chunk-24-
-1.pdf  used on input line 690.
+1.pdf  used on input line 699.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 693.
-[18 <./EDA_Documentation_files/figure-latex/unnamed-chunk-23-1.pdf>] [19 <./EDA
-_Documentation_files/figure-latex/unnamed-chunk-24-1.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 693.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 706.
+[18 <./EDA_Documentation_files/figure-latex/unnamed-chunk-24-1.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 706.
 (./EDA_Documentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 693.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 693.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 706.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 706.
 Package rerunfilecheck Info: File `EDA_Documentation.out' has not changed.
-(rerunfilecheck)             Checksum: 79A25A31CB41CBB8194C4F921C530DE0;822.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 693.
+(rerunfilecheck)             Checksum: D19B598AAF47F1BD5A558893460D4600;817.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 706.
  ) 
 Here is how much of TeX's memory you used:
- 12528 strings out of 494553
- 181415 string characters out of 6175972
- 266425 words of memory out of 5000000
+ 12527 strings out of 494553
+ 181406 string characters out of 6175972
+ 265402 words of memory out of 5000000
  15999 multiletter control sequences out of 15000+600000
  25029 words of font info for 26 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 28i,6n,35p,805b,449s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 28i,5n,35p,805b,353s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/Admin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.e
 nc}{c:/Users/Admin/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1
 .enc}<c:/Users/Admin/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/l
@@ -1385,10 +1383,10 @@ e1/public/lm/lmr17.pfb><c:/Users/Admin/AppData/Roaming/TinyTeX/texmf-dist/fonts
 fonts/type1/public/lm/lmtk10.pfb><c:/Users/Admin/AppData/Roaming/TinyTeX/texmf-
 dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/Admin/AppData/Roaming/TinyTeX/t
 exmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on EDA_Documentation.pdf (19 pages, 308638 bytes).
+Output written on EDA_Documentation.pdf (18 pages, 309403 bytes).
 PDF statistics:
- 236 PDF objects out of 1000 (max. 8388607)
- 174 compressed objects within 2 object streams
- 26 named destinations out of 1000 (max. 500000)
+ 231 PDF objects out of 1000 (max. 8388607)
+ 170 compressed objects within 2 object streams
+ 25 named destinations out of 1000 (max. 500000)
  92 words of extra memory for PDF output out of 10000 (max. 10000000)
 

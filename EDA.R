@@ -5,7 +5,7 @@ library(dlookr)
 library(ggplot2)
 library(reshape2)
 library(sqldf)
-
+library(DataExplorer)
 # Read data
 data<-read.csv("ReadyforModelling.csv") 
 # Checking structure of the dataset
@@ -15,6 +15,8 @@ data$Answered.by.specialist<- factor(data$Answered.by.specialist)
 data$Booked.Status<- factor(data$Booked.Status)
 data$EnquiryYear<-factor(data$EnquiryYear)
 data$DepYear<-factor(data$DepYear)
+data$Children<-factor(data$Children)
+data$Adults<-factor(data$Adults)
 data$X<-NULL
 
 # check dimension of the dataset
@@ -64,20 +66,24 @@ data %>%
 # the left-skewed distribution data, that is, the variables with large positive skewness
 #should consider the log or sqrt transformations to follow the normal distribution
 
-data$log_lead.time<-sqrt(data$Lead.Time)
+data$sqrt_lead.time<-sqrt(data$Lead.Time)
+
+data %>%
+  describe() %>%
+  select(variable, skewness) %>% 
+  filter(!is.na(skewness)) %>% 
+  arrange(desc(abs(skewness)))
+
 
 #sometimes it is ideal to remove outliers/anomalies to achieve a normal distribution
 #diagnose anomalies of all numeric variables of data
 diagnose_outlier(data)
 
-data %>%
-  plot_outlier(diagnose_outlier(data) %>% 
-                 filter(outliers_ratio >= 0.5) %>% 
-                 select(variables) %>% 
-                 unlist())
-# The plot shows that the variable infants is highly skewed
-
-plot_normality(data)
+# The variable duration has approximately 32% observations identified as outliers
+plot_histogram(data$Duration)
+# From the plot it is observed that the high skewness is due to majority of enquiries are for 7,10,14 or 21 days.
+# tabulate the values to get a better understanding.
+table(data$Duration)
 
 ### Answering questions based on datasets (Visualisation)
 
@@ -94,11 +100,9 @@ ggplot(data=pop_destination,aes(x=reorder(as.factor(Destination),n),y=n,fill=as.
 # What are the day and month wise total enquiries?
 
 day_month_sale<- data%>%group_by(EnquiryMonth,EnquiryDay)  %>% count(Destination)%>%arrange(EnquiryMonth,EnquiryDay) %>% ungroup()
-ggplot(data=day_month_sale,aes(x=EnquiryDay,y=n,group=EnquiryMonth,color=as.factor(EnquiryMonth)))+geom_line()+geom_point()+scale_x_continuous(breaks=seq(min(0),max(31),by=1))+
-  labs(title="Enquiries by month per day")
 
-ggplot(data=day_month_sale, aes(x=EnquiryDay,y=n,fill=as.factor(EnquiryDay)))+geom_bar(stat="identity")+scale_x_continuous(breaks=seq(min(0),max(31),by=1))+facet_wrap(~EnquiryMonth,ncol=2)
-
+ggplot(data=day_month_sale, aes(x=EnquiryDay,y=n,fill=as.factor(EnquiryDay)))+geom_bar(stat="identity")+scale_x_continuous(breaks=seq(min(0),max(31),by=1))+facet_wrap(~EnquiryMonth,ncol=2)+
+labs(title= "Enquiries per day per month", x="EnquiryDay",y="Enquiries")
 
 # Total enquiries by year and month
 
@@ -118,15 +122,17 @@ ggplot(data,aes(x=factor(data$DepMonth),fill=Destination))+geom_bar()+
   labs(title="Enquiries of destination for each departure date",x="Departure Month",y="Enquiries",fill="Destination")
 
 # Which period of the day is the Allocated.Time the worst?
+plot(data$Enquiry.Time_class)
 ggplot(data,aes(x=Enquiry.Time_class,fill=Allocated.Time)) + geom_bar(position="dodge")
+
 # proportion 
 tab_count<-table(data$Enquiry.Time_class,data$Allocated.Time)
-prop.table(tab_count,2)
 prop.table(tab_count,1)
 ggplot(data,aes(x=Enquiry.Time_class,fill=Allocated.Time)) + geom_bar(position="fill") + ylab("proportion")
 
 #popular holidaytype based on departure month
-ggplot(data,aes(x=factor(DepMonth))) + geom_bar() + facet_wrap(~Holiday.Type)
+ggplot(data,aes(x=factor(DepMonth))) + geom_bar() + facet_wrap(~Holiday.Type) +
+  labs(title="Holiday type by departure month",x="Month",y="enquiries")
 
 # percentage of enquiries which booked the service (conversion rate)
 data$Booked<-as.integer(data$Booked.Status)
@@ -136,3 +142,4 @@ summarization$enquiries<- as.numeric(summarization$enquiries)
 conversionrate <- sqldf("select *, (totalbooked/enquiries)*100 as conversion from summarization")
 data.frame(conversionrate)
 
+ggplot(conversionrate,aes(x=factor(EnquiryMonth),y=conversion))+geom_bar(stat="identity")
