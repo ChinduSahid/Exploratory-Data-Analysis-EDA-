@@ -4,6 +4,7 @@ library(dplyr)
 library(dlookr)
 library(ggplot2)
 library(reshape2)
+library(sqldf)
 
 # Read data
 data<-read.csv("ReadyforModelling.csv") 
@@ -126,3 +127,12 @@ ggplot(data,aes(x=Enquiry.Time_class,fill=Allocated.Time)) + geom_bar(position="
 
 #popular holidaytype based on departure month
 ggplot(data,aes(x=factor(DepMonth))) + geom_bar() + facet_wrap(~Holiday.Type)
+
+# percentage of enquiries which booked the service (conversion rate)
+data$Booked<-as.integer(data$Booked.Status)
+summarization <- sqldf("select EnquiryMonth, count(EnquiryMonth) as enquiries, sum(Booked) as totalbooked from data group by EnquiryMonth")
+summarization$totalbooked<- as.numeric(summarization$totalbooked)
+summarization$enquiries<- as.numeric(summarization$enquiries)
+conversionrate <- sqldf("select *, (totalbooked/enquiries)*100 as conversion from summarization")
+data.frame(conversionrate)
+

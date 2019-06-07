@@ -9,13 +9,16 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## This is a Expploratory Data Analysis report carried out on a sample CRM dataset
+## This is a Exploratory Data Analysis report carried out on a sample CRM dataset
 
 
 ```{r,include= FALSE}
 library(dplyr)
 library(dlookr)
 library(ggplot2)
+library(reshape2)
+library(sqldf)
+library(DataExplorer)
 ```
 
 Loading csv file into R studio
@@ -33,24 +36,43 @@ data$Answered.by.specialist<- factor(data$Answered.by.specialist)
 data$Booked.Status<- factor(data$Booked.Status)
 data$EnquiryYear<-factor(data$EnquiryYear)
 data$DepYear<-factor(data$DepYear)
+data$Children<-factor(data$Children)
+data$Adults<-factor(data$Adults)
 data$X<-NULL
 ```
-Get a better understanding of the entire dataset
-```{r}
-summary(data)
-```
+
 Get a better understanding of numeric/interger variables
 ```{r}
 diagnose_numeric(data)
 ```
+From the diagnosis, it is observed that the variable duration has a high number of outliers and that there is no negative values or zero values in the numeric variables.
+
 Get a better understanding of categorical variables
 ```{r}
 diagnose_category(data)
 ```
-Checking correlation between numerical variables
+The diagnosis gives a breakdown of the frequency level and the ratio for each categorical variables. This is useful in understanding rare levels in variables. Example the there are only 9 enquiries each for the Destination LH,LV and SF. Based on information gained from this diagnosis, we could group these three levels together as 'other destinations'.
+
+Checking correlation between numerical variables (fast plot)
 ```{r}
 plot_correlate(data)
 ```
+Detailed correlation plot
+```{r}
+num.cols<-sapply(data,is.numeric)
+data_numcols<-data[,num.cols]
+cor(data_numcols)
+
+melted_corr<-melt(cor(data_numcols))
+ggplot(data=melted_corr,aes(x=Var1,y=Var2,fill=value))+
+  geom_tile()+
+  scale_fill_gradient(low="grey",high="darkred")+
+  geom_text(aes(x=Var1,y=Var2,label=round(value,2)),size=4)+
+  labs(title="Correlation Matrix",x="Numeric column",y="Numeric column",fill="Coefficient Range")+
+  theme(axis.text.x=element_text(angle=45, vjust=0.5))
+```
+
+
 Exploring relation between target varaible (Booked.Status) and a numeric variable
 ```{r}
 categ<-target_by(data,Booked.Status)
@@ -66,27 +88,59 @@ cat_cat
 plot(cat_cat) #mosaics plot
 ```
 
-Understanding what is the most common numberof adults in each holiday type to carry out better marketing promotions.
-
+Checking for skewness in numeric variables (If skewness value lies above +1 or below -1, data is highly skewed. If it lies between +0.5 to -0.5, it is moderately skewed. If the value is 0, then the data is symmetric)
 ```{r}
-boxplot(data$Adults~data$Holiday.Type)
+data %>%
+  describe() %>%
+  select(variable, skewness) %>% 
+  filter(!is.na(skewness)) %>% 
+  arrange(desc(abs(skewness)))
 ```
 
+Lead.Time is highly skewed. To reduce the skewness and to achive a distribution that is close to a normal distribution, a sqrt transformation is used.
+```{r}
+data$sqrt_lead.time<-sqrt(data$Lead.Time)
+
+data %>%
+  describe() %>%
+  select(variable, skewness) %>% 
+  filter(!is.na(skewness)) %>% 
+  arrange(desc(abs(skewness)))
+```
+The skewness is now reduced.
+
+#### Diagnose anomalies of all numeric variables of data
+```{r}
+diagnose_outlier(data)
+```
+
+The variable duration has approximately 32% observations identified as outliers
+```{r}
+plot_histogram(data$Duration)
+```
+From the plot it is observed that the high skewness is due to majority of enquiries are for 7,10,14 or 21 days.
+tabulate values to get a better understanding.
+```{r}
+table(data$Duration)
+```
+
+### Answering questions using data visualisation techniques
 
 Desination by popularity and what is the total enquiries for each destination?
 ```{r}
 pop_destination<- data %>% group_by(Destination) %>% count(Destination) %>%ungroup()
 
 ggplot(data=pop_destination,aes(x=reorder(as.factor(Destination),n),y=n,fill=as.factor(Destination)))+geom_bar(stat="identity")+coord_flip()+
-  labs(title= "most popular destination based on enquiries", x="Destination",y="Enquiries")
+  labs(title= "most popular destination based on enquiries", x="Enquiries",y="Destinations")
 ```
+
 What are the day and month wise total enquiries?
 ```{r}
 day_month_sale<- data%>%group_by(EnquiryMonth,EnquiryDay)  %>% count(Destination)%>%arrange(EnquiryMonth,EnquiryDay) %>% ungroup()
 
-ggplot(data=day_month_sale, aes(x=EnquiryDay,y=n,fill=as.factor(EnquiryDay)))+geom_bar(stat="identity")+scale_x_continuous(breaks=seq(min(0),max(31),by=1))+facet_wrap(~EnquiryMonth,ncol=2)
+ggplot(data=day_month_sale, aes(x=EnquiryDay,y=n,fill=as.factor(EnquiryDay)))+geom_bar(stat="identity")+scale_x_continuous(breaks=seq(min(0),max(31),by=1))+facet_wrap(~EnquiryMonth,ncol=2)+
+labs(title= "Enquiries per day per month", x="EnquiryDay",y="Enquiries")
 ```
-
 Total enquiries by year and month
 ```{r}
 year_month<- data%>%group_by(EnquiryYear,EnquiryMonth) %>% count(Destination)%>%arrange(EnquiryYear)%>%ungroup()
@@ -94,9 +148,47 @@ ggplot(data=year_month,aes(x=EnquiryYear,y=n,fill=as.factor(EnquiryMonth)))+ geo
   labs(title="total enquiries per year-month",x="year",y="total enquiries",fill="EnquiryMonth")
 ```
 
-How many enquiries were booked based on Allocated.Time
+How many enquiries were booked based on Allocated.Time?
 ```{r}
 data$Booked.Status<-as.integer(data$Booked.Status)
+data$Booked.Status<-ifelse(data$Booked.Status %in% 1,0,1)
 booked_Allocated<-data%>%group_by(Allocated.Time)%>% summarise(booked=sum(Booked.Status)) %>%arrange(Allocated.Time)%>%ungroup()
+ggplot(data=booked_Allocated,aes(x=Allocated.Time,y=booked,fill=as.factor(Allocated.Time)))+ geom_bar(stat="identity")+
+  labs(title="Enquiries booked based on allocated time",x="year",y="total booked",fill="Allocated.Time")
 ```
 
+Which destinations are popular based on departure months?
+```{r}
+ggplot(data,aes(x=factor(data$DepMonth),fill=Destination))+geom_bar()+
+  labs(title="Enquiries of destination for each departure date",x="Departure Month",y="Enquiries",fill="Destination")
+```
+
+Which time of the day is the most enquiries coming in and Which period of the day is the Allocated.Time the worst?
+```{r}
+plot(data$Enquiry.Time_class)
+ggplot(data,aes(x=Enquiry.Time_class,fill=Allocated.Time)) + geom_bar(position="dodge")
+```
+
+what is the Proportion of agent allocation speed for monring, afternoon and night?
+```{r}
+tab_count<-table(data$Enquiry.Time_class,data$Allocated.Time)
+prop.table(tab_count,1)
+ggplot(data,aes(x=Enquiry.Time_class,fill=Allocated.Time)) + geom_bar(position="fill") + ylab("proportion")
+```
+What are the most popular destinations each month?
+```{r}
+ggplot(data,aes(x=factor(DepMonth))) + geom_bar() + facet_wrap(~Holiday.Type) +
+  labs(title="Holiday type by departure month",x="Month",y="enquiries")
+```
+
+What is the conversion rate per month?
+```{r}
+data$Booked<-as.integer(data$Booked.Status)
+summarization <- sqldf("select EnquiryMonth, count(EnquiryMonth) as enquiries, sum(Booked) as totalbooked from data group by EnquiryMonth")
+summarization$totalbooked<- as.numeric(summarization$totalbooked)
+summarization$enquiries<- as.numeric(summarization$enquiries)
+conversionrate <- sqldf("select *, (totalbooked/enquiries)*100 as conversion from summarization")
+data.frame(conversionrate)
+
+ggplot(conversionrate,aes(x=factor(EnquiryMonth),y=conversion))+geom_bar(stat="identity")+labs(title="conversion rate per month",x="EnquiryMonth")
+```
