@@ -46,7 +46,7 @@ Get a better understanding of numeric/interger variables
 ```{r}
 diagnose_numeric(data)
 ```
-From the diagnosis, it is observed that the variable duration has a high number of outliers and that there is no negative values or zero values in the numeric variables.
+From the diagnosis, it is observed that the variable duration has a high number of outliers and that there is no negative values or zero values in the numeric variables. When a data set has a symmetrical distribution, the mean and the median are close together because the middle value in the data set, when ordered smallest to largest, resembles the balancing point in the data, which occurs at the average.
 
 Get a better understanding of categorical variables
 ```{r}
@@ -235,3 +235,17 @@ ggplot(conversionrate,aes(x=factor(EnquiryMonth),y=conversion))+
 
 Conversion rate relates to the profit earned by the company each month. From the plot we can determine which months the company is making the most profit.
 
+
+What is the general Lead.Time for each holiday type?
+```{r}
+ggplot(data = data, mapping = aes(x =Holiday.Type , y = Lead.Time,fill=Holiday.Type)) +
+  geom_boxplot()
+```
+Using a boxplot allows us to understand each holiday type better as it seperates the outliers from the core of the data. From the plot we can see that the meadian for holiday type A and E are similar but the lead time for holiday type A is more variable than E.
+
+Which accommodation type is prefered for each holiday type?
+```{r}
+ggplot(data = data) +
+  geom_count(mapping = aes(x = Holiday.Type, y = Accom.type))
+```
+From the plot we can see that the most popular Accom.type for holiday type A is either grade 2 or grade 1. People who book this holiday type has a high probability of needing an accommodation, this conclusion was derieved as there are no enquiries which requested for no accommodation for holiday type A. People who are booking any other holiday types might not need an accommodation, expecially those booking holiday type E.

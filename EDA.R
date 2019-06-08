@@ -143,3 +143,14 @@ conversionrate <- sqldf("select *, (totalbooked/enquiries)*100 as conversion fro
 data.frame(conversionrate)
 
 ggplot(conversionrate,aes(x=factor(EnquiryMonth),y=conversion))+geom_bar(stat="identity")
+
+# what is the general Lead.Time for each holiday type
+ggplot(data = data, mapping = aes(x =Holiday.Type , y = Lead.Time,fill=Holiday.Type)) +
+  geom_boxplot()
+
+
+# Covariation between holiday type and accommodation type
+ggplot(data = data) +
+  geom_count(mapping = aes(x = Holiday.Type, y = Accom.type))
+
+
