@@ -10,6 +10,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## This is a Exploratory Data Analysis report carried out on a sample CRM dataset
 
+The dataset consist of enquiries carried out by people regarding holiday packages over two years. This dataset will be analysed to get better insights that could help improve marketing and business decisions. This is a randomly fabricated dataset just for the purpose of demonstracting the power of EDA.
+
 
 ```{r,include= FALSE}
 library(dplyr)
@@ -68,7 +70,8 @@ ggplot(data=melted_corr,aes(x=Var1,y=Var2,fill=value))+
   geom_tile()+
   scale_fill_gradient(low="grey",high="darkred")+
   geom_text(aes(x=Var1,y=Var2,label=round(value,2)),size=4)+
-  labs(title="Correlation Matrix",x="Numeric column",y="Numeric column",fill="Coefficient Range")+
+  labs(title="Correlation Matrix",x="Numeric column",y="Numeric column",
+       fill="Coefficient Range")+
   theme(axis.text.x=element_text(angle=45, vjust=0.5))
 ```
 From the correlation plot it is understood that there is little relation between the numeric variable. The strongest relationship is between duration and lead time, but is a rather weak relation.
@@ -77,7 +80,10 @@ Exploring relation between target varaible (Booked.Status) and a numeric variabl
 ```{r}
 categ<-target_by(data,Booked.Status)
 cat_num<-relate(categ,Duration)
-plot(cat_num) # relationship between booked.status and duration is represented using a desity plot
+```
+Relationship between booked.status and duration is represented using a desity plot
+```{r}
+plot(cat_num) 
 ```
 
 \newpage
@@ -133,26 +139,32 @@ Desination by popularity and what is the total enquiries for each destination?
 ```{r}
 pop_destination<- data %>% group_by(Destination) %>% count(Destination) %>%ungroup()
 
-ggplot(data=pop_destination,aes(x=reorder(as.factor(Destination),n),y=n,fill=as.factor(Destination)))+geom_bar(stat="identity")+coord_flip()+
-  labs(title= "most popular destination based on enquiries", x="Enquiries",y="Destinations")
+ggplot(data=pop_destination,aes(x=reorder(as.factor(Destination),n),
+       y=n,fill=as.factor(Destination)))+geom_bar(stat="identity")+coord_flip()+
+labs(title= "most popular destination based on enquiries", x="Enquiries",y="Destinations")
 ```
 From the plot we know that the two most popular destinations are AC and AB. The least popular destinations are LA and Fort Lauderdale.
 
 \newpage
 What are the day and month wise total enquiries?
 ```{r}
-day_month_sale<- data%>%group_by(EnquiryMonth,EnquiryDay)  %>% count(Destination)%>%arrange(EnquiryMonth,EnquiryDay) %>% ungroup()
+day_month_sale<-data%>%group_by(EnquiryMonth,EnquiryDay) %>% 
+  count(Destination)%>%arrange(EnquiryMonth,EnquiryDay) %>% ungroup()
 
-ggplot(data=day_month_sale, aes(x=EnquiryDay,y=n,fill=as.factor(EnquiryDay)))+geom_bar(stat="identity")+scale_x_continuous(breaks=seq(min(0),max(31),by=1))+facet_wrap(~EnquiryMonth,ncol=2)+
+ggplot(data=day_month_sale, aes(x=EnquiryDay,y=n,fill=as.factor(EnquiryDay)))+
+  geom_bar(stat="identity")+scale_x_continuous(breaks=seq(min(0),max(31),by=1))+
+  facet_wrap(~EnquiryMonth,ncol=2)+
 labs(title= "Enquiries per day per month", x="EnquiryDay",y="Enquiries")
 ```
 By understanding the plot, the company can allocate more agents to attend enquiries on specific days of the months where the number of enquiries are high. For example in January(1) more agents are required in the begining of the month, middle and towards the end of the month. Assigning more agents during these time would improve the Allocation.time and could lead to increase in booking.
 \newpage
 Total enquiries by year and month
 ```{r}
-year_month<- data%>%group_by(EnquiryYear,EnquiryMonth) %>% count(Destination)%>%arrange(EnquiryYear)%>%ungroup()
-ggplot(data=year_month,aes(x=EnquiryYear,y=n,fill=as.factor(EnquiryMonth)))+ geom_bar(stat="identity")+
-  labs(title="total enquiries per year-month",x="year",y="total enquiries",fill="EnquiryMonth")
+year_month<- data%>%group_by(EnquiryYear,EnquiryMonth) %>%
+  count(Destination)%>%arrange(EnquiryYear)%>%ungroup()
+ggplot(data=year_month,aes(x=EnquiryYear,y=n,fill=as.factor(EnquiryMonth)))+
+  geom_bar(stat="identity")+labs(title="total enquiries per year-month",
+                                 x="year",y="total enquiries",fill="EnquiryMonth")
 ```
 By analysing this plot we are able to understand that generally the most number of enquiries comes in during the first few months of the year. In December and march the number of enquiries are generally lower and would be an ideal time for employees to clear their holiday entitlement.
 
@@ -161,9 +173,12 @@ How many enquiries were booked based on Allocated.Time?
 ```{r}
 data$Booked.Status<-as.integer(data$Booked.Status)
 data$Booked.Status<-ifelse(data$Booked.Status %in% 1,0,1)
-booked_Allocated<-data%>%group_by(Allocated.Time)%>% summarise(booked=sum(Booked.Status)) %>%arrange(Allocated.Time)%>%ungroup()
-ggplot(data=booked_Allocated,aes(x=Allocated.Time,y=booked,fill=as.factor(Allocated.Time)))+ geom_bar(stat="identity")+
-  labs(title="Enquiries booked based on allocated time",x="year",y="total booked",fill="Allocated.Time")
+booked_Allocated<-data%>%group_by(Allocated.Time)%>% summarise(booked=sum(Booked.Status))%>%
+  arrange(Allocated.Time)%>%ungroup()
+ggplot(data=booked_Allocated,aes(x=Allocated.Time,y=booked,fill=as.factor(Allocated.Time)))+
+  geom_bar(stat="identity")+
+  labs(title="Enquiries booked based on allocated time",
+       x="year",y="total booked",fill="Allocated.Time")
 ```
 This plot clearly shows that allocated time plays a significant part in an enquiry being booked. If an enquiry is attended to with a allocated time of 'slow' the potential customer will likely to seek other companies for their holiday packages.
 
@@ -171,7 +186,8 @@ This plot clearly shows that allocated time plays a significant part in an enqui
 Which destinations are popular based on departure months?
 ```{r}
 ggplot(data,aes(x=factor(data$DepMonth),fill=Destination))+geom_bar()+
-  labs(title="Enquiries of destination for each departure date",x="Departure Month",y="Enquiries",fill="Destination")
+  labs(title="Enquiries of destination for each departure date",
+       x="Departure Month",y="Enquiries",fill="Destination")
 ```
 As we say earlier AB and AC are the most popular destination, this plots gives a breakdown on when each destination is more popular. This plot can help the marketing team to plan promotion pakages for the various months to improve business.
 
@@ -188,7 +204,8 @@ what is the Proportion of agent allocation speed for morning, afternoon and nigh
 ```{r}
 tab_count<-table(data$EnquiryMonth,data$Allocated.Time)
 prop.table(tab_count,1)
-ggplot(data,aes(x=factor(EnquiryMonth),fill=Allocated.Time)) + geom_bar(position="fill") + ylab("proportion")
+ggplot(data,aes(x=factor(EnquiryMonth),fill=Allocated.Time)) + 
+  geom_bar(position="fill") + ylab("proportion")
 ```
 This plot can be used to plan holiday entitlement to employees. Holiday entitlement should be reduced for months were Allocated.time is high. The major problem seems to be occuring in June and Decmber.
 
@@ -204,13 +221,16 @@ This plot can be used to introduce promotional holiday packages for the various 
 What is the conversion rate per month?
 ```{r}
 data$Booked<-as.integer(data$Booked.Status)
-summarization <- sqldf("select EnquiryMonth, count(EnquiryMonth) as enquiries, sum(Booked) as totalbooked from data group by EnquiryMonth")
+summarization <- sqldf("select EnquiryMonth, count(EnquiryMonth) as enquiries, 
+                       sum(Booked) as totalbooked from data group by EnquiryMonth")
 summarization$totalbooked<- as.numeric(summarization$totalbooked)
 summarization$enquiries<- as.numeric(summarization$enquiries)
-conversionrate <- sqldf("select *, (totalbooked/enquiries)*100 as conversion from summarization")
+conversionrate <- sqldf("select *,
+                        (totalbooked/enquiries)*100 as conversion from summarization")
 data.frame(conversionrate)
 
-ggplot(conversionrate,aes(x=factor(EnquiryMonth),y=conversion))+geom_bar(stat="identity")+labs(title="conversion rate per month",x="EnquiryMonth")
+ggplot(conversionrate,aes(x=factor(EnquiryMonth),y=conversion))+
+  geom_bar(stat="identity")+labs(title="conversion rate per month",x="EnquiryMonth")
 ```
 
 Conversion rate relates to the profit earned by the company each month. From the plot we can determine which months the company is making the most profit.
