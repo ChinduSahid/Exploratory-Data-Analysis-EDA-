@@ -26,12 +26,12 @@ Loading csv file into R studio
 ```{r}
 data<-read.csv("ReadyforModelling.csv") 
 ```
-Checking if R studio has identified the right structure for each variable
+#### Checking if R has identified the right structure for each variable
 ```{r}
 str(data)
 ```
 \newpage
-Changing structure of wrongly assigned variables and remove variables unrealated to the analysis
+#### Changing structure of wrongly assigned variables and remove variables unrealated to the analysis
 ```{r}
 data$Answered.by.specialist<- factor(data$Answered.by.specialist)
 data$Booked.Status<- factor(data$Booked.Status)
@@ -42,61 +42,61 @@ data$Adults<-factor(data$Adults)
 data$X<-NULL
 ```
 
-Get a better understanding of numeric/interger variables
+
+#### Get a better understanding of numeric/interger variables
 ```{r}
 diagnose_numeric(data)
 ```
 From the diagnosis, it is observed that the variable duration has a high number of outliers and that there is no negative values or zero values in the numeric variables. When a data set has a symmetrical distribution, the mean and the median are close together because the middle value in the data set, when ordered smallest to largest, resembles the balancing point in the data, which occurs at the average.
 
-Get a better understanding of categorical variables
+#### Get a better understanding of categorical variables
 ```{r}
 diagnose_category(data)
 ```
-The diagnosis gives a breakdown of the frequency level and the ratio for each categorical variables. This is useful in understanding rare levels in variables. Example the there are only 9 enquiries each for the Destination LH,LV and SF. Based on information gained from this diagnosis, we could group these three levels together as 'other destinations'.
+The diagnosis gives a breakdown of the frequency level and the ratio for each categorical variables. This is useful in understanding rare levels in variables. Example there are only 9 enquiries each for the Destination LH,LV and SF. Based on information gained from this diagnosis, we could group these three rare levels together as 'other destinations'. (Run the R script to see the full list)
 
-\newpage
-Checking correlation between numerical variables (fast plot)
+#### Checking correlation between numerical variables (fast plot)
 ```{r}
 plot_correlate(data)
 ```
-Detailed correlation plot
-```{r}
+
+#### Detailed correlation plot
+```{r fig.height=3}
 num.cols<-sapply(data,is.numeric)
 data_numcols<-data[,num.cols]
-cor(data_numcols)
+
 
 melted_corr<-melt(cor(data_numcols))
 ggplot(data=melted_corr,aes(x=Var1,y=Var2,fill=value))+
   geom_tile()+
   scale_fill_gradient(low="grey",high="darkred")+
   geom_text(aes(x=Var1,y=Var2,label=round(value,2)),size=4)+
-  labs(title="Correlation Matrix",x="Numeric column",y="Numeric column",
+  labs(title="Correlation Matrix",x=" ",y=" ",
        fill="Coefficient Range")+
   theme(axis.text.x=element_text(angle=45, vjust=0.5))
 ```
 From the correlation plot it is understood that there is little relation between the numeric variable. The strongest relationship is between duration and lead time, but is a rather weak relation.
-\newpage
-Exploring relation between target varaible (Booked.Status) and a numeric variable
-```{r}
+
+#### Exploring relation between target varaible (Booked.Status) and duration using a density plot
+```{r fig.height=3}
 categ<-target_by(data,Booked.Status)
 cat_num<-relate(categ,Duration)
-```
-Relationship between booked.status and duration is represented using a desity plot
-```{r}
 plot(cat_num) 
 ```
 
 \newpage
-Exploring relation between target variable(BookedStatus) and a categorical variable
+#### Exploring relation between target variable(BookedStatus) and a categorical variable
 ```{r}
 cat_cat<-relate(categ,Allocated.Time)
 cat_cat
 plot(cat_cat) #mosaics plot
 ```
-By understanding the relationship it is clear that if the Allocated.Time is slow the chances of booking is significantly lowered.
+By understanding the relationship it is clear that if the Allocated.Time is slow, the chances of booking is significantly lowered.
 
 \newpage
-Checking for skewness in numeric variables (If skewness value lies above +1 or below -1, data is highly skewed. If it lies between +0.5 to -0.5, it is moderately skewed. If the value is 0, then the data is symmetric)
+#### Checking for skewness in numeric variables 
+
+If skewness value lies above +1 or below -1, data is highly skewed. If it lies between +0.5 to -0.5, it is moderately skewed. If the value is 0, then the data is symmetric
 ```{r}
 data %>%
   describe() %>%
@@ -115,7 +115,7 @@ data %>%
   filter(!is.na(skewness)) %>% 
   arrange(desc(abs(skewness)))
 ```
-The skewness for Lead.Time is now reduced.
+The skewness for Lead.Time is now reduced and labeled as sqrt_lead.time
 
 \newpage
 #### Diagnose anomalies of all numeric variables of data
@@ -127,30 +127,27 @@ The variable duration has approximately 32% observations identified as outliers
 ```{r}
 plot_histogram(data$Duration)
 ```
-From the plot it is observed that the high skewness is due to majority of enquiries are for 7,10,14 or 21 days.
-Tabulate the values to get a better understanding.
-```{r}
-table(data$Duration)
-```
+From the plot it is observed that the high outlier ratio is due to majority (more than half) of the enquiries falling in 14 days.
 
-### Answering questions using data visualisation techniques
 
-Desination by popularity and what is the total enquiries for each destination?
-```{r}
+# Answering questions using data visualisation techniques
+
+#### Desination by popularity and what is the total enquiries for each destination?
+```{r fig.height=3}
 pop_destination<- data %>% group_by(Destination) %>% count(Destination) %>%ungroup()
 
 ggplot(data=pop_destination,aes(x=reorder(as.factor(Destination),n),
        y=n,fill=as.factor(Destination)))+geom_bar(stat="identity")+coord_flip()+
 labs(title= "most popular destination based on enquiries", x="Enquiries",y="Destinations")
+pop_destination
 ```
-From the plot we know that the two most popular destinations are AC and AB. The least popular destinations are LA and Fort Lauderdale.
+From the plot we know that the two most popular destinations are AC and AB. The least popular destinations are Tampa and IO Vista
 
-\newpage
-What are the day and month wise total enquiries?
+
+#### What are the day and month wise total enquiries?
 ```{r}
 day_month_sale<-data%>%group_by(EnquiryMonth,EnquiryDay) %>% 
   count(Destination)%>%arrange(EnquiryMonth,EnquiryDay) %>% ungroup()
-
 ggplot(data=day_month_sale, aes(x=EnquiryDay,y=n,fill=as.factor(EnquiryDay)))+
   geom_bar(stat="identity")+scale_x_continuous(breaks=seq(min(0),max(31),by=1))+
   facet_wrap(~EnquiryMonth,ncol=2)+
@@ -158,7 +155,8 @@ labs(title= "Enquiries per day per month", x="EnquiryDay",y="Enquiries")
 ```
 By understanding the plot, the company can allocate more agents to attend enquiries on specific days of the months where the number of enquiries are high. For example in January(1) more agents are required in the begining of the month, middle and towards the end of the month. Assigning more agents during these time would improve the Allocation.time and could lead to increase in booking.
 \newpage
-Total enquiries by year and month
+
+#### What is the proportion of enquiries by year and month?
 ```{r}
 year_month<- data%>%group_by(EnquiryYear,EnquiryMonth) %>%
   count(Destination)%>%arrange(EnquiryYear)%>%ungroup()
@@ -169,13 +167,15 @@ ggplot(data=year_month,aes(x=EnquiryYear,y=n,fill=as.factor(EnquiryMonth)))+
 By analysing this plot we are able to understand that generally the most number of enquiries comes in during the first few months of the year. In December and march the number of enquiries are generally lower and would be an ideal time for employees to clear their holiday entitlement.
 
 \newpage
-How many enquiries were booked based on Allocated.Time?
+#### How many enquiries were booked based on Allocated.Time?
 ```{r}
 data$Booked.Status<-as.integer(data$Booked.Status)
 data$Booked.Status<-ifelse(data$Booked.Status %in% 1,0,1)
-booked_Allocated<-data%>%group_by(Allocated.Time)%>% summarise(booked=sum(Booked.Status))%>%
+booked_Allocated<-data%>%group_by(Allocated.Time)%>% 
+  summarise(booked=sum(Booked.Status))%>%
   arrange(Allocated.Time)%>%ungroup()
-ggplot(data=booked_Allocated,aes(x=Allocated.Time,y=booked,fill=as.factor(Allocated.Time)))+
+ggplot(data=booked_Allocated,aes(x=Allocated.Time,y=booked,
+                                 fill=as.factor(Allocated.Time)))+
   geom_bar(stat="identity")+
   labs(title="Enquiries booked based on allocated time",
        x="year",y="total booked",fill="Allocated.Time")
@@ -183,24 +183,27 @@ ggplot(data=booked_Allocated,aes(x=Allocated.Time,y=booked,fill=as.factor(Alloca
 This plot clearly shows that allocated time plays a significant part in an enquiry being booked. If an enquiry is attended to with a allocated time of 'slow' the potential customer will likely to seek other companies for their holiday packages.
 
 \newpage
-Which destinations are popular based on departure months?
+#### Which destinations are popular based on departure months?
 ```{r}
 ggplot(data,aes(x=factor(data$DepMonth),fill=Destination))+geom_bar()+
   labs(title="Enquiries of destination for each departure date",
        x="Departure Month",y="Enquiries",fill="Destination")
 ```
-As we say earlier AB and AC are the most popular destination, this plots gives a breakdown on when each destination is more popular. This plot can help the marketing team to plan promotion pakages for the various months to improve business.
+In the earlier plot, AB and AC was identified as the most popular destination, this plots gives a breakdown on when each destination is more popular. This plot can help the marketing team to plan promotion pakages for the various months to improve business. Example in July AC is more popular than AB, which in November AB is more popular.
 
 \newpage
-Which time of the day is the most enquiries coming in and Which period of the day is the Allocated.Time the worst?
-```{r fig.height=4}
+#### Which time period of the day is the most enquiries coming in and which period of the day is the Allocated.Time the worst?
+```{r fig.height=3}
 plot(data$Enquiry.Time_class)
+```
+This plot shows that the majority of the enquiries are received in the morning and half as many in the afternoon.
+```{r fig.height=3.5}
 ggplot(data,aes(x=Enquiry.Time_class,fill=Allocated.Time)) + geom_bar(position="dodge")
 ```
-This plot shows that the majority of the enquiries are received in the morning and that there are not enough agents available to deal with all the enquiries at an optimal speed, resulting in a huge number of enquiries with an allocated.time of 'slow'. A strategy should be devised to improve this situation.
+Due to the high number of enquiries in the morning there are not enough agents available to deal with all the enquiries at an optimal speed, resulting in a huge number of enquiries with an allocated.time of 'slow'. A strategy should be devised to improve this situation.
 
 \newpage
-what is the Proportion of agent allocation speed for morning, afternoon and night?
+#### What is the Proportion of agent allocation speed over the 12 months?
 ```{r}
 tab_count<-table(data$EnquiryMonth,data$Allocated.Time)
 prop.table(tab_count,1)
@@ -210,16 +213,16 @@ ggplot(data,aes(x=factor(EnquiryMonth),fill=Allocated.Time)) +
 This plot can be used to plan holiday entitlement to employees. Holiday entitlement should be reduced for months were Allocated.time is high. The major problem seems to be occuring in June and Decmber.
 
 \newpage
-Which months are popular for each holiday type?
+#### Which months are popular for each holiday type?
 ```{r}
 ggplot(data,aes(x=factor(DepMonth))) + geom_bar() + facet_wrap(~Holiday.Type) +
   labs(title="Holiday type by departure month",x="Month",y="enquiries")
 ```
-This plot can be used to introduce promotional holiday packages for the various months.
+This plot can be used to introduce customised promotional packages for each destination for each month.
 
 \newpage
-What is the conversion rate per month?
-```{r}
+#### What is the conversion rate per month?
+```{r fig.height=3}
 data$Booked<-as.integer(data$Booked.Status)
 summarization <- sqldf("select EnquiryMonth, count(EnquiryMonth) as enquiries, 
                        sum(Booked) as totalbooked from data group by EnquiryMonth")
@@ -235,17 +238,20 @@ ggplot(conversionrate,aes(x=factor(EnquiryMonth),y=conversion))+
 
 Conversion rate relates to the profit earned by the company each month. From the plot we can determine which months the company is making the most profit.
 
+\newpage
 
-What is the general Lead.Time for each holiday type?
+#### What is the general Lead.Time for each holiday type?
 ```{r}
 ggplot(data = data, mapping = aes(x =Holiday.Type , y = Lead.Time,fill=Holiday.Type)) +
   geom_boxplot()
 ```
 Using a boxplot allows us to understand each holiday type better as it seperates the outliers from the core of the data. From the plot we can see that the meadian for holiday type A and E are similar but the lead time for holiday type A is more variable than E.
 
-Which accommodation type is prefered for each holiday type?
+\newpage
+
+#### Which accommodation type is prefered for each holiday type?
 ```{r}
 ggplot(data = data) +
   geom_count(mapping = aes(x = Holiday.Type, y = Accom.type))
 ```
-From the plot we can see that the most popular Accom.type for holiday type A is either grade 2 or grade 1. People who book this holiday type has a high probability of needing an accommodation, this conclusion was derieved as there are no enquiries which requested for no accommodation for holiday type A. People who are booking any other holiday types might not need an accommodation, expecially those booking holiday type E.
+From the plot we can see that the most popular Accom.type for holiday type A is either grade 2 or grade 1. People who book holiday type A or C has a high probability of needing an accommodation, this conclusion was derieved as there are no enquiries which requested for no accommodation for holiday type A. Hence holiday packages for these holiday types should include accommodation packages.People who are booking any other holiday types might not need an accommodation, especially those booking holiday type E.
