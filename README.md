@@ -10,4 +10,4 @@ library(reshape2),
 library(sqldf),
 library(DataExplorer)
 
-Refer to pdf for the detailed explanation of the EDA process.
+Refer to the pdf file for the detailed explanation of the EDA process.
