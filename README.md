@@ -10,4 +10,4 @@ library(reshape2),
 library(sqldf),
 library(DataExplorer)
 
-Refer to the pdf file for the detailed explanation of the EDA process.
+https://github.com/ChinduSahid/Exploratory-Data-Analysis-EDA-/blob/master/EDA_Documentation.pdf
